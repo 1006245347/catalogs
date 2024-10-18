@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    标题栏的颜色 #6200EE-->
+    <color name="colorPrimary">#ffff</color>
+    <color name="colorPrimaryDark">#ffff</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="defaultTextColor">#FFFFFF</color>
+    <color name="errorColor">#99F25555</color>
+    <color name="infoColor">#E658B2F6</color>
+    <color name="successColor">#B32BC852</color>
+    <color name="warningColor">#FFA900</color>
+    <color name="normalColor">#353A3E</color>
+
+    //txt
+    <color name="cGreyTxt">#B5B5B5</color>
+    <color name="cGreyTxt_Deep">#999999</color>
+    <color name="cBlackTxt">#333333</color>
+    <color name="cBlack">#333333</color>
+    <color name="cGreyNormal">#666666</color>
+
+    //bg
+    <color name="cBasic">#014AA7</color>//#FFFB8664
+    <color name="cBlue">#014AA7</color>
+    <color name="cBlue_low">#629de8</color>
+    <color name="cBlue_normal">#4D014AA7</color>
+    <color name="cBlue_process">#66629DE8</color>
+    <color name="cOrange_low">#FAAD96</color>
+    <color name="cOrange_low2">#FAD4C8</color>
+    <color name="cGrey">#E4E4E4</color>
+    <color name="cGrey_low">#FAFAFA</color>
+    <color name="cGrey_Deep">#B5B5B5</color>
+    <color name="cGreyLine">#B5B5B5</color>
+    <color name="cWhite">#ffffffff</color>
+    <color name="cWhite30">#4DFFFFFF</color>
+    <color name="percentColor">#80055287</color>
+    <color name="darkBlue">#FF0C3CA8</color>
+    <color name="fab_background_tint">#FFFB8664</color>
+    <color name="emoji_tab_indicator">#66ffffff</color>
+    <color name="emoji_tab_underline">#11ffffff</color>
+    <color name="hintBlack">#99000000</color>
+</resources>

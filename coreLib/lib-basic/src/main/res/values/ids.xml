@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="triggerDelayKey" type="id"/>
+    <item name="triggerLastTimeKey" type="id"/>
+    <item name="refreshRoot" type="id" />
+    <item name="tvDone" type="id" />
+    <item name="right_btn" type="id" />
+    <item name="content_dialog" type="id" />
+    <item name="title" type="id" />
+    <item name="tvInfo" type="id" />
+
+
+</resources>
