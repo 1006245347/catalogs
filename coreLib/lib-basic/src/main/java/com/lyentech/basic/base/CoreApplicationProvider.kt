@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.os.Build
 import android.os.Environment
+import com.didi.drouter.api.DRouter
 import com.lyentech.basic.utils.printV
 import java.io.File
 
@@ -34,12 +35,12 @@ open class CoreApplicationProvider : Application() {
 
         @JvmStatic
         fun getUserDownLoadDir(userId: Long): File? {
-            return appContext.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS +"/" + userId)
+            return appContext.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS + "/" + userId)
         }
 
         /****公有目录，要权限  目前所有的手动下载都到这里，允许重复下载****/
         @JvmStatic
-        fun  getGlobalDir(userId: Long = 0): String {
+        fun getGlobalDir(userId: Long = 0): String {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {//android10开始分区存储
                 Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + File.separator + "ark_download" + File.separator + userId + File.separator
             } else {
@@ -53,7 +54,7 @@ open class CoreApplicationProvider : Application() {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 if (isCopy) {
 //                    if (isHarmonyOs()) { //临时缓存文件夹，Android10后是先下载到外部再复制到图册,鸿蒙必须是应用内部再复制，这里特意分开不然不容易发现
-                        getUserDownLoadDir(userid)?.absolutePath + ""
+                    getUserDownLoadDir(userid)?.absolutePath + ""
 //                    } else {
 //                        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + File.separator + "ark_download" + File.separator + userid + File.separator
 //                    }
@@ -67,7 +68,6 @@ open class CoreApplicationProvider : Application() {
 
 
     }
-
 
 
     override fun onCreate() {
@@ -84,14 +84,14 @@ open class CoreApplicationProvider : Application() {
     /*模块的初始化保证在主进程中*/
     private fun isAppMainProcess(context: Context): Boolean {
 //        if (TextUtils.equals(getCurProcessName(context), packageName)) {
-            return true
+        return true
 //        }
 //        return false
     }
 
     /*适合基础库的初始化，会回调到所有模块*/
     open fun initApp() {
-
+        DRouter.init(this) //初始化路由表
     }
 
     override fun attachBaseContext(base: Context) {

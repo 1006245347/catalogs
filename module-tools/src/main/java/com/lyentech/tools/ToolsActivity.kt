@@ -1,5 +1,6 @@
 package com.lyentech.tools
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -28,7 +29,7 @@ class ToolsActivity : BaseGActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        ivPic = bindView(R.id.ivPic)
         clickFilter(R.id.btnClick) {
             //这里获取其他组件数据，可以再建写函数包装一下，不然写的ModuleFactory.instance.getLoginService()?代码多
             val token = ModuleFactory.instance.getLoginService()?.getLoginToken()
@@ -37,7 +38,17 @@ class ToolsActivity : BaseGActivity() {
             printD("$url")
             GlideUtils.loadImg(this, url, ivPic)  //注意网络、权限
         }
-        ivPic = bindView(R.id.ivPic)
 
+        clickFilter(R.id.btnBack) {
+            val intent = getIntent()
+            val bundle = Bundle()
+            bundle.putString("key", "返回222")
+            intent.putExtra("back", bundle)
+            setResult(RESULT_OK, intent)
+            finish()
+        }
+
+        val msg= intent.getBundleExtra("data")?.getString("key")
+        printD("msg>$msg")
     }
 }
